@@ -154,15 +154,9 @@ a { color: var(--green-dark); }
 
 .section-alt {
   background: #f3ede0;
-  max-width: none;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-}
-
-.section-alt > * {
-  max-width: 760px;
-  margin-left: auto;
-  margin-right: auto;
+  /* Full-bleed background while keeping content in the 760px column. */
+  box-shadow: 0 0 0 100vmax #f3ede0;
+  clip-path: inset(0 -100vmax);
 }
 
 .section-lead { color: var(--muted); margin-top: -0.25rem; }
