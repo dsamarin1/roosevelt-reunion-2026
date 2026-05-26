@@ -1,0 +1,7 @@
+name = "reunion-uploads"
+main = "src/index.js"
+compatibility_date = "2026-05-26"
+
+[[r2_buckets]]
+binding = "BUCKET"
+bucket_name = "reunion-photos"

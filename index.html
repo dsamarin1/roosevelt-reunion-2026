@@ -14,6 +14,9 @@
 
   <link rel="icon" type="image/png" href="assets/logo.png" />
   <link rel="stylesheet" href="styles.css" />
+
+  <link rel="stylesheet" href="https://releases.transloadit.com/uppy/v4.4.0/uppy.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/photoswipe@5.4.4/dist/photoswipe.css" />
 </head>
 <body>
 
@@ -90,20 +93,15 @@
       <h2>Memory Lane &mdash; Share Your Photos</h2>
       <p>
         Got a stash of yearbook-era photos? Prom, football games, choir trips, parking-lot hangouts &mdash;
-        we want to see them all. Drop them in the shared Google Drive and we&rsquo;ll feature them at the reunion.
-      </p>
-      <p class="center">
-        <a href="https://drive.google.com/drive/folders/1bKP0xGruWR-gFC8UwETjGMNGBO6Wj2PF" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Upload Your Photos</a>
+        we want to see them all. Drop them below to add them to the class album.
       </p>
 
-      <div class="gallery-embed">
-        <iframe
-          src="https://drive.google.com/embeddedfolderview?id=1bKP0xGruWR-gFC8UwETjGMNGBO6Wj2PF#grid"
-          title="Class of 2006 shared photo album"
-          loading="lazy">
-        </iframe>
+      <div id="uppy-uploader"></div>
+
+      <h3 class="gallery-heading">Class Album</h3>
+      <div id="gallery-grid" class="gallery-grid" aria-live="polite">
+        <p class="muted center gallery-empty">Loading photos&hellip;</p>
       </div>
-      <p class="muted center"><small>Photos appear here automatically as alumni add them to the Drive folder.</small></p>
     </section>
 
     <section id="donate" class="section section-alt">
@@ -136,6 +134,10 @@
     <p class="copyright">&copy; 2026 RHS Class of 2006 Reunion</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script type="module">
+    // Worker URL — update after first `wrangler deploy` if it differs.
+    window.REUNION_WORKER_URL = 'https://reunion-uploads.PLACEHOLDER.workers.dev';
+  </script>
+  <script type="module" src="script.js"></script>
 </body>
 </html>
