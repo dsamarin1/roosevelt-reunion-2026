@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Roosevelt High Class of 2006 – 20 Year Reunion</title>
+  <meta name="description" content="Roosevelt High School (Fresno, CA) Class of 2006 20-Year Reunion — Saturday, September 26, 2026. RSVP, share photos, and help support the celebration." />
+
+  <meta property="og:title" content="Roosevelt High Class of 2006 – 20 Year Reunion" />
+  <meta property="og:description" content="Saturday, September 26, 2026 in Fresno, CA. RSVP and share your favorite memories." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/logo.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header id="hero" class="hero">
+    <img src="assets/logo.png" alt="Roosevelt High School Rough Riders crest — Class of 2006" class="hero-logo" />
+    <p class="hero-school">Roosevelt High School &middot; Fresno, CA</p>
+    <h1 class="hero-title">Class of 2006 &mdash; 20 Year Reunion</h1>
+    <p class="hero-date">Saturday, September 26, 2026</p>
+
+    <div class="countdown" aria-live="polite" aria-label="Time remaining until the reunion">
+      <div class="countdown-cell"><span id="cd-days">--</span><small>Days</small></div>
+      <div class="countdown-cell"><span id="cd-hours">--</span><small>Hours</small></div>
+      <div class="countdown-cell"><span id="cd-minutes">--</span><small>Minutes</small></div>
+      <div class="countdown-cell"><span id="cd-seconds">--</span><small>Seconds</small></div>
+    </div>
+
+    <a href="#rsvp" class="btn btn-primary hero-cta">RSVP Now</a>
+  </header>
+
+  <main>
+
+    <section id="about" class="section">
+      <h2>Welcome Back, Rough Riders</h2>
+      <p>
+        It&rsquo;s been twenty years &mdash; can you believe it? The Roosevelt High Class of 2006 is getting
+        the band back together to celebrate two decades since we walked the stage. Expect old friends,
+        old stories, and a great evening of catching up.
+      </p>
+      <p>
+        <strong>Venue is TBD</strong> while we get a head count. Please RSVP below so the committee can
+        book a space that fits everyone comfortably. The sooner we know, the better we can plan.
+      </p>
+    </section>
+
+    <section id="rsvp" class="section section-alt">
+      <h2>RSVP</h2>
+      <p class="section-lead">Let us know you&rsquo;re coming. It takes about 30 seconds.</p>
+
+      <form id="rsvp-form" action="https://formspree.io/f/mnjrgdqk" method="POST" novalidate>
+        <label>
+          Full Name
+          <input type="text" name="name" required autocomplete="name" />
+        </label>
+
+        <label>
+          Email Address
+          <input type="email" name="email" required autocomplete="email" />
+        </label>
+
+        <label>
+          Phone Number
+          <input type="tel" name="phone" autocomplete="tel" />
+        </label>
+
+        <fieldset class="radio-group">
+          <legend>Will you be bringing a significant other?</legend>
+          <label class="radio"><input type="radio" name="plus_one" value="Yes" required /> Yes</label>
+          <label class="radio"><input type="radio" name="plus_one" value="No" /> No</label>
+        </fieldset>
+
+        <label>
+          Comments
+          <textarea name="comments" rows="4" placeholder="Anything you&rsquo;d like the committee to know?"></textarea>
+        </label>
+
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="honeypot" aria-hidden="true" />
+
+        <button type="submit" class="btn btn-primary">Submit RSVP</button>
+        <p id="form-status" class="form-status" role="status"></p>
+      </form>
+    </section>
+
+    <section id="gallery" class="section">
+      <h2>Memory Lane &mdash; Share Your Photos</h2>
+      <p>
+        Got a stash of yearbook-era photos? Prom, football games, choir trips, parking-lot hangouts &mdash;
+        we want to see them all. Drop them in the shared Google Drive and we&rsquo;ll feature them at the reunion.
+      </p>
+      <p class="center">
+        <a href="https://drive.google.com/drive/folders/1bKP0xGruWR-gFC8UwETjGMNGBO6Wj2PF" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Upload Your Photos</a>
+      </p>
+
+      <div class="gallery-embed">
+        <iframe
+          src="https://drive.google.com/embeddedfolderview?id=1bKP0xGruWR-gFC8UwETjGMNGBO6Wj2PF#grid"
+          title="Class of 2006 shared photo album"
+          loading="lazy">
+        </iframe>
+      </div>
+      <p class="muted center"><small>Photos appear here automatically as alumni add them to the Drive folder.</small></p>
+    </section>
+
+    <section id="donate" class="section section-alt">
+      <h2>Help Fund the Reunion</h2>
+      <p>
+        A great night isn&rsquo;t free &mdash; venue rental, food, drinks, and decorations all add up. Every
+        contribution, big or small, helps the committee throw the reunion this class deserves. If you&rsquo;re
+        able to chip in, we&rsquo;d be grateful.
+      </p>
+      <p class="center">
+        <a href="https://gofund.me/b74fce5bf" target="_blank" rel="noopener noreferrer" class="btn btn-gold">Donate on GoFundMe</a>
+      </p>
+    </section>
+
+    <section id="contact" class="section">
+      <h2>Contact Us</h2>
+      <p>
+        Questions, ideas, or trying to track down a long-lost classmate? Reach out anytime &mdash; we&rsquo;d love to hear from you.
+      </p>
+      <p class="center">
+        <a href="mailto:rhsfresno06@gmail.com" class="contact-email">rhsfresno06@gmail.com</a>
+      </p>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p><strong>Organized by your Reunion Committee:</strong></p>
+    <p>Kendra Lopez &middot; Talia Archie &middot; Norma Harris &middot; Victoria Samarin</p>
+    <p class="copyright">&copy; 2026 RHS Class of 2006 Reunion</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
