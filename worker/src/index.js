@@ -2,8 +2,6 @@ const ALLOWED_TYPES = [
   'image/jpeg',
   'image/png',
   'image/webp',
-  'image/heic',
-  'image/heif',
 ];
 const MAX_SIZE = 15 * 1024 * 1024; // 15 MB
 const PUBLIC_BASE = 'https://pub-2074dbafae3d4a378c6bc12523b2ba96.r2.dev';
@@ -12,8 +10,6 @@ const EXT_FOR_MIME = {
   'image/jpeg': '.jpg',
   'image/png': '.png',
   'image/webp': '.webp',
-  'image/heic': '.heic',
-  'image/heif': '.heif',
 };
 
 const CORS = {

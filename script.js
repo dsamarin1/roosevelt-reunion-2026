@@ -93,6 +93,31 @@ async function readImageDimensions(file) {
   });
 }
 
+function isHeic(file) {
+  const type = (file.type || '').toLowerCase();
+  if (type === 'image/heic' || type === 'image/heif') return true;
+  const name = (file.name || '').toLowerCase();
+  return name.endsWith('.heic') || name.endsWith('.heif');
+}
+
+// Lazy-load the HEIC decoder only when an HEIC actually shows up so the
+// ~500 KB wasm bundle never touches the page for non-iPhone users.
+let heic2anyPromise;
+function loadHeic2any() {
+  if (!heic2anyPromise) {
+    heic2anyPromise = import('https://esm.sh/heic2any@0.0.4').then((m) => m.default || m);
+  }
+  return heic2anyPromise;
+}
+
+async function convertHeicToJpeg(blob, originalName) {
+  const heic2any = await loadHeic2any();
+  const out = await heic2any({ blob, toType: 'image/jpeg', quality: 0.85 });
+  const jpegBlob = Array.isArray(out) ? out[0] : out;
+  const newName = (originalName || 'photo').replace(/\.(heic|heif)$/i, '') + '.jpg';
+  return new File([jpegBlob], newName, { type: 'image/jpeg' });
+}
+
 function initUploader() {
   const target = document.getElementById('uppy-uploader');
   if (!target) return null;
@@ -102,7 +127,7 @@ function initUploader() {
     autoProceed: false,
     restrictions: {
       maxFileSize: 15 * 1024 * 1024,
-      allowedFileTypes: ['image/*'],
+      allowedFileTypes: ['image/*', '.heic', '.heif'],
     },
   })
     .use(Dashboard, {
@@ -110,7 +135,7 @@ function initUploader() {
       target,
       height: 360,
       proudlyDisplayPoweredByUppy: false,
-      note: 'Up to 15 MB per photo. JPG, PNG, HEIC, WebP.',
+      note: 'Up to 15 MB per photo. JPG, PNG, HEIC (auto-converted), WebP.',
     })
     .use(XHRUpload, {
       endpoint: `${WORKER_URL}/upload`,
@@ -118,12 +143,34 @@ function initUploader() {
       formData: true,
     });
 
-  // Probe dimensions before upload so the Worker can store them as metadata.
   uppy.addPreProcessor(async (fileIDs) => {
     for (const id of fileIDs) {
       const file = uppy.getFile(id);
       if (!file?.data) continue;
-      const { width, height } = await readImageDimensions(file.data);
+
+      let data = file.data;
+
+      if (isHeic(file)) {
+        uppy.emit('preprocess-progress', file, { mode: 'indeterminate', message: 'Converting HEIC…' });
+        try {
+          const jpeg = await convertHeicToJpeg(file.data, file.name);
+          uppy.setFileState(id, {
+            data: jpeg,
+            size: jpeg.size,
+            type: jpeg.type,
+            extension: 'jpg',
+            name: jpeg.name,
+          });
+          data = jpeg;
+        } catch (err) {
+          console.error('HEIC conversion failed', err);
+          uppy.info(`Couldn't convert ${file.name}. Try saving it as JPEG first.`, 'error', 5000);
+          uppy.removeFile(id);
+          continue;
+        }
+      }
+
+      const { width, height } = await readImageDimensions(data);
       if (width && height) {
         uppy.setFileMeta(id, { width, height });
       }
