@@ -58,5 +58,5 @@ Then in `index.html`, point `REUNION_WORKER_URL` at `http://localhost:8787` whil
 
 ## Integrations
 - **RSVPs**: Formspree → `https://formspree.io/f/mnjrgdqk`. Free tier = 50 submissions/month.
-- **Donations**: GoFundMe link → `https://gofund.me/b74fce5bf`.
+- **Tickets**: Eventbrite (link TBD — placeholder button in the About section).
 - **Photo storage**: Cloudflare R2 (bucket `reunion-photos`). Free tier: 10 GB storage, 1M writes/mo, 10M reads/mo.
