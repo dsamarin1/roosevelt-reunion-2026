@@ -65,9 +65,16 @@ a { color: var(--green-dark); }
 
 .hero-date {
   font-size: 1.2rem;
-  margin: 0 0 2rem;
+  margin: 0 0 0.35rem;
   color: var(--gold);
   font-style: italic;
+}
+
+.hero-venue {
+  font-size: 1rem;
+  margin: 0 0 2rem;
+  color: var(--cream);
+  letter-spacing: 0.04em;
 }
 
 /* ---------- Countdown ---------- */
@@ -134,6 +141,19 @@ a { color: var(--green-dark); }
   border: 2px solid var(--green-dark);
 }
 .btn-gold:hover { background: var(--green-dark); color: var(--gold); transform: translateY(-1px); box-shadow: var(--shadow); }
+
+.btn-disabled,
+.btn-disabled:hover {
+  background: #d8d2c2;
+  color: var(--muted);
+  border-color: #c2bba8;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+  pointer-events: none;
+}
+
+.tickets-cta { margin-top: 2rem; }
 
 .hero-cta { margin-top: 0.5rem; }
 

@@ -1,6 +1,6 @@
 # Roosevelt High Class of 2006 — 20 Year Reunion
 
-Static one-page site for the Roosevelt High School (Fresno, CA) Class of 2006 reunion on **Saturday, September 26, 2026**.
+Static one-page site for the Roosevelt High School (Fresno, CA) Class of 2006 reunion on **Saturday, October 10, 2026** at the Simonian Farms Event Center (2629 S. Clovis Avenue, Fresno, CA 93725).
 
 ## Structure
 - `index.html` — page markup
