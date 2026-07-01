@@ -2,9 +2,9 @@ import { Uppy, Dashboard, XHRUpload } from 'https://releases.transloadit.com/upp
 import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js';
 
 // ---------------------------------------------------------------------------
-// Countdown — Oct 10, 2026 at 4:00 PM Pacific (PDT, UTC-7).
+// Countdown — Sept 26, 2026 at 5:00 PM Pacific (PDT, UTC-7).
 // ---------------------------------------------------------------------------
-const EVENT_TIME = new Date('2026-10-10T16:00:00-07:00').getTime();
+const EVENT_TIME = new Date('2026-09-26T17:00:00-07:00').getTime();
 const cd = {
   days: document.getElementById('cd-days'),
   hours: document.getElementById('cd-hours'),
@@ -60,7 +60,7 @@ if (form) {
       if (res.ok) {
         form.reset();
         formStatus.className = 'form-status success';
-        formStatus.textContent = 'Thank you! Your RSVP has been received. See you October 10th!';
+        formStatus.textContent = 'Thank you! Your RSVP has been received. See you September 26th!';
       } else {
         const body = await res.json().catch(() => ({}));
         const msg = body?.errors?.map((x) => x.message).join(', ') ||

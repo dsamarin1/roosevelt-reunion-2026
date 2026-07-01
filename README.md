@@ -1,6 +1,6 @@
 # Roosevelt High Class of 2006 — 20 Year Reunion
 
-Static one-page site for the Roosevelt High School (Fresno, CA) Class of 2006 reunion on **Saturday, October 10, 2026** at the Simonian Farms Event Center (2629 S. Clovis Avenue, Fresno, CA 93725).
+Static one-page site for the Roosevelt High School (Fresno, CA) Class of 2006 reunion on **Saturday, September 26, 2026** at Gazebo Gardens (3204 N. Van Ness Blvd, Fresno, CA 93704).
 
 ## Structure
 - `index.html` — page markup
@@ -58,5 +58,4 @@ Then in `index.html`, point `REUNION_WORKER_URL` at `http://localhost:8787` whil
 
 ## Integrations
 - **RSVPs**: Formspree → `https://formspree.io/f/mnjrgdqk`. Free tier = 50 submissions/month.
-- **Tickets**: Eventbrite (link TBD — placeholder button in the About section).
 - **Photo storage**: Cloudflare R2 (bucket `reunion-photos`). Free tier: 10 GB storage, 1M writes/mo, 10M reads/mo.
